@@ -4,8 +4,8 @@
 This project implements **document clustering** using the **K-Means algorithm** on a **Hadoop MapReduce** framework. The goal is to group similar documents into clusters based on term frequency-inverse document frequency (**TF-IDF**) values.
 
 ## 👥 Team
-- **Team Size**: 4 members
-- **Duration**: August 2024
+- **Team Size**: 5 members
+- **Duration**: March 2025
 
 ## 🏗️ Technologies Used
 - **Hadoop MapReduce** – Distributed processing of large-scale document data
@@ -26,6 +26,9 @@ Document-Clustering-using-K-Means-on-Hadoop/
   │── 1.1/  # Task 1.1 implementation
   │── 1.2/  # Task 1.2 implementation
   │── 1.3/  # Task 1.3 implementation
+      │── input/  # Input files (e.g., output_1_2.mtx)
+      │── output/ # Output files (e.g., task_1_3.txt)
+      │── source/ # Source code (e.g., Task1_3.java)
   │── 1.4/  # Task 1.4 implementation
   │── 1.5/  # Task 1.5 implementation (Final clustering output)
   │── 2.1/  # Task 2.1 implementation
@@ -37,8 +40,8 @@ Document-Clustering-using-K-Means-on-Hadoop/
 ## 🚀 How to Run
 ### 1. Clone the Repository
 ```sh
- git clone https://github.com/Badabala/Document-Clustering-using-K-Means-on-Hadoop.git
- cd Document-Clustering-using-K-Means-on-Hadoop
+git clone https://github.com/Badabala/Document-Clustering-using-K-Means-on-Hadoop.git
+cd Document-Clustering-using-K-Means-on-Hadoop
 ```
 
 ### 2. Set Up Hadoop Environment
@@ -55,14 +58,14 @@ hdfs dfs -mkdir -p /user/hadoop/input
 hdfs dfs -put dataset.txt /user/hadoop/input/
 ```
 
-### 4. Compile and Run the MapReduce Job
+### 4. Compile and Run the MapReduce Job for Task 1.3
 ```sh
-hadoop jar KMeansClustering.jar KMeansDriver /user/hadoop/input /user/hadoop/output
+hadoop jar Task1_3.jar Task1_3 /user/hadoop/input/output_1_2.mtx /user/hadoop/output/task_1_3.txt
 ```
 
 ### 5. Retrieve Output
 ```sh
-hdfs dfs -cat /user/hadoop/output/part-r-00000
+hdfs dfs -cat /user/hadoop/output/task_1_3.txt
 ```
 
 ## 📌 Notes
@@ -71,4 +74,4 @@ hdfs dfs -cat /user/hadoop/output/part-r-00000
 - The **output folder must not exist** before running the job (delete if necessary):
   ```sh
   hdfs dfs -rm -r /user/hadoop/output
-  
+  ```
